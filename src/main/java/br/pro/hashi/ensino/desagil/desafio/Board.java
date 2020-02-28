@@ -63,9 +63,23 @@ public class Board {
             for (int j = 0; j < numCols; j++) {
                 char c = line.charAt(j);
 
-                /*
-                 * ESCREVA SEU CÓDIGO AQUI!
-                 */
+                // O switch analisa uma variável e roda um código diferente para cada
+                // valor que essa variável possa ter. Cada código começa com "case" e
+                // termina com "break". Existe também o código especial "default", que
+                // roda quando o valor da variável não é nenhum dos casos anteriores.
+
+                // Estamos supondo que espaço em branco é corredor e hashtag é parede.
+                switch (c) {
+                    case ' ':
+                        wall[i][j] = false;
+                        break;
+                    case '#':
+                        wall[i][j] = true;
+                        break;
+                    default:
+                        System.err.println("Tabuleiro deve ter apenas ' ' e '#'");
+                        System.exit(1);
+                }
             }
         }
     }
