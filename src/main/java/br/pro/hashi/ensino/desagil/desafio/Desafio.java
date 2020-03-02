@@ -1,6 +1,7 @@
 package br.pro.hashi.ensino.desagil.desafio;
 
 import br.pro.hashi.ensino.desagil.desafio.model.Board;
+import br.pro.hashi.ensino.desagil.desafio.model.Model;
 import br.pro.hashi.ensino.desagil.desafio.model.Player;
 import br.pro.hashi.ensino.desagil.desafio.model.Target;
 
@@ -11,7 +12,9 @@ public class Desafio {
     // Ignore o "throws IOException" por enquanto.
     // Esse trecho será explicado em aulas futuras.
     public static void main(String[] args) throws IOException {
-        Board board = new Board("board.txt");
+        Model model = new Model();
+
+        Board board = model.getBoard();
         for (int i = 0; i < board.getNumRows(); i++) {
             for (int j = 0; j < board.getNumCols(); j++) {
                 if (board.isWall(i, j)) {
@@ -23,13 +26,13 @@ public class Desafio {
             System.out.println();
         }
 
-        Target target = new Target(4, 14);
+        Target target = model.getTarget();
         System.out.println("Target: " + target.getRow() + ", " + target.getCol());
 
-        Player humanPlayer = new Player(0, 0, board);
+        Player humanPlayer = model.getHumanPlayer();
         System.out.println("Human: " + humanPlayer.getRow() + ", " + humanPlayer.getCol());
 
-        Player cpuPlayer = new Player(8, 18, board);
+        Player cpuPlayer = model.getCpuPlayer();
         System.out.println("Cpu: " + cpuPlayer.getRow() + ", " + cpuPlayer.getCol());
     }
 }
