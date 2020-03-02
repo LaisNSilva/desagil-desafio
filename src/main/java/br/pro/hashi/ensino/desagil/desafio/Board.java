@@ -8,13 +8,13 @@ import java.net.URL;
 import java.util.Objects;
 
 public class Board {
-    boolean[][] wall;
-    int numRows;
-    int numCols;
+    private boolean[][] wall;
+    private int numRows;
+    private int numCols;
 
     // Ignore o "throws IOException" por enquanto.
     // Esse trecho será explicado em aulas futuras.
-    void load(String name) throws IOException {
+    public Board(String name) throws IOException {
 
         // Estamos supondo que o arquivo está na pasta de recursos.
         // Nesse caso, o código abaixo obtém o endereço (URL) desse
@@ -82,5 +82,17 @@ public class Board {
                 }
             }
         }
+    }
+
+    public boolean isWall(int row, int col) {
+        return wall[row][col];
+    }
+
+    public int getNumRows() {
+        return numRows;
+    }
+
+    public int getNumCols() {
+        return numCols;
     }
 }

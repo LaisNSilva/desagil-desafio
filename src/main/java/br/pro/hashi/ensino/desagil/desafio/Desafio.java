@@ -7,11 +7,10 @@ public class Desafio {
     // Ignore o "throws IOException" por enquanto.
     // Esse trecho será explicado em aulas futuras.
     public static void main(String[] args) throws IOException {
-        Board board = new Board();
-        board.load("board.txt");
-        for (int i = 0; i < board.numRows; i++) {
-            for (int j = 0; j < board.numCols; j++) {
-                if (board.wall[i][j]) {
+        Board board = new Board("board.txt");
+        for (int i = 0; i < board.getNumRows(); i++) {
+            for (int j = 0; j < board.getNumCols(); j++) {
+                if (board.isWall(i, j)) {
                     System.out.print('#');
                 } else {
                     System.out.print(' ');
