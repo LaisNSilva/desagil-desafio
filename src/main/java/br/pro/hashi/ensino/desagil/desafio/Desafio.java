@@ -1,5 +1,9 @@
 package br.pro.hashi.ensino.desagil.desafio;
 
+import br.pro.hashi.ensino.desagil.desafio.model.Board;
+import br.pro.hashi.ensino.desagil.desafio.model.Player;
+import br.pro.hashi.ensino.desagil.desafio.model.Target;
+
 import java.io.IOException;
 
 public class Desafio {

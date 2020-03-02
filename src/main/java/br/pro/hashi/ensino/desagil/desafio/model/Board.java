@@ -1,4 +1,4 @@
-package br.pro.hashi.ensino.desagil.desafio;
+package br.pro.hashi.ensino.desagil.desafio.model;
 
 import java.io.BufferedReader;
 import java.io.IOException;
