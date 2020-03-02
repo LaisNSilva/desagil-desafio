@@ -20,10 +20,8 @@ public class Desafio {
             System.out.println();
         }
 
-        Target target = new Target();
-        target.row = 4;
-        target.col = 14;
-        System.out.println("Target: " + target.row + ", " + target.col);
+        Target target = new Target(4, 14);
+        System.out.println("Target: " + target.getRow() + ", " + target.getCol());
 
         Player humanPlayer = new Player();
         humanPlayer.row = 0;
