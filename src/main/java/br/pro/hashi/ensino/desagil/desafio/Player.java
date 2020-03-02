@@ -1,11 +1,25 @@
 package br.pro.hashi.ensino.desagil.desafio;
 
 public class Player {
-    int row;
-    int col;
-    Board board;
+    private int row;
+    private int col;
+    private Board board;
 
-    void move(int rowShift, int colShift) {
+    public Player(int row, int col, Board board) {
+        this.row = row;
+        this.col = col;
+        this.board = board;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void move(int rowShift, int colShift) {
         row += rowShift;
         col += colShift;
     }

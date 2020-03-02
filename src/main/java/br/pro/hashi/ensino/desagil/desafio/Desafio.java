@@ -23,16 +23,10 @@ public class Desafio {
         Target target = new Target(4, 14);
         System.out.println("Target: " + target.getRow() + ", " + target.getCol());
 
-        Player humanPlayer = new Player();
-        humanPlayer.row = 0;
-        humanPlayer.col = 0;
-        humanPlayer.board = board;
-        System.out.println("Human: " + humanPlayer.row + ", " + humanPlayer.col);
+        Player humanPlayer = new Player(0, 0, board);
+        System.out.println("Human: " + humanPlayer.getRow() + ", " + humanPlayer.getCol());
 
-        Player cpuPlayer = new Player();
-        cpuPlayer.row = 8;
-        cpuPlayer.col = 18;
-        cpuPlayer.board = board;
-        System.out.println("Cpu: " + cpuPlayer.row + ", " + cpuPlayer.col);
+        Player cpuPlayer = new Player(8, 18, board);
+        System.out.println("Cpu: " + cpuPlayer.getRow() + ", " + cpuPlayer.getCol());
     }
 }
