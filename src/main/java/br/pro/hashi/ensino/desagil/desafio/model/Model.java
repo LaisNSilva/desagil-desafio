@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Model {
     private Board board;
-    private Target target;
+    private Element target;
     private Player humanPlayer;
     private Player cpuPlayer;
 
@@ -13,7 +13,7 @@ public class Model {
     public Model() throws IOException {
         board = new Board("board.txt");
 
-        target = new Target(4, 14);
+        target = new Element(4, 14);
 
         humanPlayer = new Player(0, 0, board);
 
@@ -24,7 +24,7 @@ public class Model {
         return board;
     }
 
-    public Target getTarget() {
+    public Element getTarget() {
         return target;
     }
 

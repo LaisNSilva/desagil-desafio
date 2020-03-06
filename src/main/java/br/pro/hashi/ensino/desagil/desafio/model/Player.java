@@ -1,6 +1,6 @@
 package br.pro.hashi.ensino.desagil.desafio.model;
 
-public class Player extends Target {
+public class Player extends Element {
     private Board board;
 
     public Player(int row, int col, Board board) {
