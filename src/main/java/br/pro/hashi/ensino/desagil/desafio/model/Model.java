@@ -5,8 +5,8 @@ import java.io.IOException;
 public class Model {
     private Board board;
     private Element target;
-    private Player humanPlayer;
-    private Player cpuPlayer;
+    private HumanPlayer humanPlayer;
+    private CpuPlayer cpuPlayer;
 
     // Ignore o "throws IOException" por enquanto.
     // Esse trecho será explicado em aulas futuras.
@@ -15,9 +15,9 @@ public class Model {
 
         target = new Element(4, 14);
 
-        humanPlayer = new Player(0, 0, board);
+        humanPlayer = new HumanPlayer(0, 0, board);
 
-        cpuPlayer = new Player(8, 18, board);
+        cpuPlayer = new CpuPlayer(8, 18, board);
     }
 
     public Board getBoard() {
@@ -28,11 +28,11 @@ public class Model {
         return target;
     }
 
-    public Player getHumanPlayer() {
+    public HumanPlayer getHumanPlayer() {
         return humanPlayer;
     }
 
-    public Player getCpuPlayer() {
+    public CpuPlayer getCpuPlayer() {
         return cpuPlayer;
     }
 }
