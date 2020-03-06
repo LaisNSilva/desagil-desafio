@@ -1,11 +1,13 @@
 package br.pro.hashi.ensino.desagil.desafio;
 
 import br.pro.hashi.ensino.desagil.desafio.model.Board;
+import br.pro.hashi.ensino.desagil.desafio.model.Element;
 import br.pro.hashi.ensino.desagil.desafio.model.Model;
 
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
+import java.util.HashMap;
 
 // Estender a classe JPanel e reescrever o método
 // paintComponent é um jeito tradicional de criar
@@ -17,9 +19,7 @@ public class View extends JPanel {
     private int CELL_SIZE = 50;
 
     private Model model;
-    private Image targetImage;
-    private Image humanPlayerImage;
-    private Image cpuPlayerImage;
+    private HashMap<Element, Image> elementsToImages;
 
     public View(Model model) {
         this.model = model;
@@ -31,10 +31,11 @@ public class View extends JPanel {
         int height = board.getNumRows() * CELL_SIZE;
         setPreferredSize(new Dimension(width, height));
 
-        // Carrega a imagem do alvo e dos dois jogadores.
-        targetImage = getImage("target.png");
-        humanPlayerImage = getImage("human-player.png");
-        cpuPlayerImage = getImage("cpu-player.png");
+        // Mapeia cada elemento para sua respectiva imagem.
+        elementsToImages = new HashMap<>();
+        elementsToImages.put(model.getTarget(), getImage("target.png"));
+        elementsToImages.put(model.getHumanPlayer(), getImage("human-player.png"));
+        elementsToImages.put(model.getCpuPlayer(), getImage("cpu-player.png"));
     }
 
     // Método que desenha a interface gráfica do jogo. A ideia é simples: o objeto g é como
@@ -57,20 +58,13 @@ public class View extends JPanel {
             }
         }
 
-        int row;
-        int col;
-
-        row = model.getTarget().getRow();
-        col = model.getTarget().getCol();
-        g.drawImage(targetImage, col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE, this);
-
-        row = model.getHumanPlayer().getRow();
-        col = model.getHumanPlayer().getCol();
-        g.drawImage(humanPlayerImage, col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE, this);
-
-        row = model.getCpuPlayer().getRow();
-        col = model.getCpuPlayer().getCol();
-        g.drawImage(cpuPlayerImage, col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE, this);
+        // Desenha o alvo e os jogadores.
+        for (Element element : elementsToImages.keySet()) {
+            int row = element.getRow();
+            int col = element.getCol();
+            Image image = elementsToImages.get(element);
+            g.drawImage(image, col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE, this);
+        }
 
         // Linha necessária para evitar atrasos
         // de renderização em sistemas Linux.
