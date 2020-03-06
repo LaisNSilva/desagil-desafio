@@ -44,11 +44,33 @@ public class View extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
 
-        /*
-         * ESCREVA SEU CÓDIGO AQUI!
-         * Dica: abra o link do comentário anterior para descobrir
-         * como usar os métodos g.setColor, g.fillRect e g.DrawImage.
-         */
+        // Desenha as células do tabuleiro.
+        Board board = model.getBoard();
+        for (int i = 0; i < board.getNumRows(); i++) {
+            for (int j = 0; j < board.getNumCols(); j++) {
+                if (board.isWall(i, j)) {
+                    g.setColor(Color.BLACK);
+                } else {
+                    g.setColor(Color.WHITE);
+                }
+                g.fillRect(j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+            }
+        }
+
+        int row;
+        int col;
+
+        row = model.getTarget().getRow();
+        col = model.getTarget().getCol();
+        g.drawImage(targetImage, col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE, this);
+
+        row = model.getHumanPlayer().getRow();
+        col = model.getHumanPlayer().getCol();
+        g.drawImage(humanPlayerImage, col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE, this);
+
+        row = model.getCpuPlayer().getRow();
+        col = model.getCpuPlayer().getCol();
+        g.drawImage(cpuPlayerImage, col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE, this);
 
         // Linha necessária para evitar atrasos
         // de renderização em sistemas Linux.
