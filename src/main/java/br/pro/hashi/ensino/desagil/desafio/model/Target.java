@@ -1,8 +1,8 @@
 package br.pro.hashi.ensino.desagil.desafio.model;
 
 public class Target {
-    private int row;
-    private int col;
+    protected int row;
+    protected int col;
 
     public Target(int row, int col) {
         this.row = row;
