@@ -1,12 +1,15 @@
 package br.pro.hashi.ensino.desagil.desafio;
 
+import br.pro.hashi.ensino.desagil.desafio.model.CpuPlayer;
 import br.pro.hashi.ensino.desagil.desafio.model.HumanPlayer;
 import br.pro.hashi.ensino.desagil.desafio.model.Model;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Controller implements KeyListener {
+public class Controller implements KeyListener, ActionListener {
     private Model model;
     private View view;
 
@@ -54,5 +57,14 @@ public class Controller implements KeyListener {
         // Neste programa, não é necessário definir o que o controlador
         // faz quando uma tecla é solta, mas implementar KeyListener
         // obriga esse método a existir. Então deixamos ele vazio.
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        CpuPlayer cpuPlayer = model.getCpuPlayer();
+
+        cpuPlayer.move();
+
+        view.repaint();
     }
 }

@@ -39,6 +39,13 @@ public class Desafio {
 
                 // Exibe a janela.
                 frame.setVisible(true);
+
+                // Constrói um relógio de 100 milissegundos e adiciona
+                // o controlador à lista de observadores desse relógio.
+                Timer timer = new Timer(100, controller);
+
+                // Inicia o relógio.
+                timer.start();
             }
         });
     }
