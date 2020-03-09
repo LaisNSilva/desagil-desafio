@@ -1,6 +1,6 @@
 package br.pro.hashi.ensino.desagil.desafio.model;
 
-public class Player extends Element {
+public abstract class Player extends Element {
     protected Board board;
 
     protected Player(int row, int col, Board board) {
