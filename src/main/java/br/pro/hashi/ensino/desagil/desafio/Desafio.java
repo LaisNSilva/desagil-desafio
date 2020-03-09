@@ -24,6 +24,10 @@ public class Desafio {
                 // Adiciona a visão à janela.
                 frame.setContentPane(view);
 
+                // Adiciona o controlador à lista de observadores
+                // das ações de teclado detectadas pela janela.
+                frame.addKeyListener(controller);
+
                 // Configura a janela para encerrar o programa quando for fechada.
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
