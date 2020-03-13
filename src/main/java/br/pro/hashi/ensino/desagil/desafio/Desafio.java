@@ -3,13 +3,9 @@ package br.pro.hashi.ensino.desagil.desafio;
 import br.pro.hashi.ensino.desagil.desafio.model.Model;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class Desafio {
-
-    // Ignore o "throws IOException" por enquanto.
-    // Esse trecho será explicado em aulas futuras.
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Model model = new Model();
         View view = new View(model);
         Controller controller = new Controller(model, view);
