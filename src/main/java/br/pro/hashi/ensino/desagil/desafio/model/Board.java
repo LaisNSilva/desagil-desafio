@@ -83,8 +83,7 @@ public class Board {
                             wall[i][j] = true;
                             break;
                         default:
-                            System.err.println("Tabuleiro deve ter apenas ' ' e '#'");
-                            System.exit(1);
+                            throw new IOException("Tabuleiro deve ter apenas ' ' e '#'");
                     }
                 }
             }
