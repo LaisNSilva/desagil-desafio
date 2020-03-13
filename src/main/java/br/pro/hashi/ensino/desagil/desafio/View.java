@@ -16,10 +16,10 @@ public class View extends JPanel {
 
     // Constante que representa o tamanho,
     // em pixels, da célula do tabuleiro.
-    private static int CELL_SIZE = 50;
+    private static final int CELL_SIZE = 50;
 
-    private Model model;
-    private HashMap<Element, Image> elementsToImages;
+    private final Model model;
+    private final HashMap<Element, Image> elementsToImages;
 
     public View(Model model) {
         this.model = model;

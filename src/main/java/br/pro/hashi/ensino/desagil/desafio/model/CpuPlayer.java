@@ -9,14 +9,14 @@ public class CpuPlayer extends Player {
     // por um nó da árvore, enquanto no segundo ela é representada por um índice de
     // linha e um índice de coluna. Na árvore, podemos registrar no próprio nó se
     // ele foi visitado ou não. No tabuleiro, criamos uma matriz extra para isso.
-    private boolean[][] visited;
-    private int numRows;
-    private int numCols;
+    private final boolean[][] visited;
+    private final int numRows;
+    private final int numCols;
 
     // Por outro lado, o conceito de nó também existe no caso do tabuleiro porque
     // precisamos de algum tipo de objeto para ser guardado na pilha. Veja no final
     // deste arquivo a definição de Node: serve apenas para guardar linha e coluna.
-    private Stack<Node> stack;
+    private final Stack<Node> stack;
 
     // Outra diferença fundamental entre o código do Estudo Individual 1 e este:
     // enquanto no EI havia um loop explícito criado por um while, aqui há um loop
@@ -91,8 +91,8 @@ public class CpuPlayer extends Player {
     // Estamos fazendo isso porque ninguém além de CpuPlayer precisa usar Node.
     // Parece estranho, mas CpuPlayer acessa tudo o que é privado de Node.
     private static class Node {
-        private int row;
-        private int col;
+        private final int row;
+        private final int col;
 
         private Node(int row, int col) {
             this.row = row;

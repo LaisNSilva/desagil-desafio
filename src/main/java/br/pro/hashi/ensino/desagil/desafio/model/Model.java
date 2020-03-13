@@ -1,10 +1,10 @@
 package br.pro.hashi.ensino.desagil.desafio.model;
 
 public class Model {
-    private Board board;
-    private Element target;
-    private HumanPlayer humanPlayer;
-    private CpuPlayer cpuPlayer;
+    private final Board board;
+    private final Element target;
+    private final HumanPlayer humanPlayer;
+    private final CpuPlayer cpuPlayer;
 
     public Model() {
         board = new Board("board.txt");
