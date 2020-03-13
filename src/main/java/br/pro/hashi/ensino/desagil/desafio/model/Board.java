@@ -87,19 +87,15 @@ public class Board {
                     }
                 }
             }
-        } catch (IOException outerException) {
-            System.err.println(outerException.getMessage());
-            try {
-                Objects.requireNonNull(reader).close();
-            } catch (IOException innerException) {
-                System.err.println(innerException.getMessage());
-            }
-            System.exit(1);
-        }
-        try {
-            Objects.requireNonNull(reader).close();
         } catch (IOException exception) {
             System.err.println(exception.getMessage());
+            System.exit(1);
+        } finally {
+            try {
+                Objects.requireNonNull(reader).close();
+            } catch (IOException exception) {
+                System.err.println(exception.getMessage());
+            }
         }
     }
 
