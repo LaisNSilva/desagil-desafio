@@ -90,7 +90,7 @@ public class CpuPlayer extends Player {
     // Aqui temos um exemplo de classe aninhada, ou seja, classe dentro de classe.
     // Estamos fazendo isso porque ninguém além de CpuPlayer precisa usar Node.
     // Parece estranho, mas CpuPlayer acessa tudo o que é privado de Node.
-    private class Node {
+    private static class Node {
         private int row;
         private int col;
 
