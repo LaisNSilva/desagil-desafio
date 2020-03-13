@@ -31,9 +31,7 @@ public class Board {
         // para ler caracteres desse arquivo. Também constrói um BufferedReader a partir
         // do InputStreamReader. Isso não é necessário mas é conveniente, pois permite usar
         // o método readLine. Sem o BufferedReader, teríamos que ler caractere por caractere.
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(stream));
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
 
             // Estamos supondo que a primeira linha do arquivo é
             // formada por duas palavras separadas por um espaço
@@ -90,12 +88,6 @@ public class Board {
         } catch (IOException exception) {
             System.err.println(exception.getMessage());
             System.exit(1);
-        } finally {
-            try {
-                Objects.requireNonNull(reader).close();
-            } catch (IOException exception) {
-                System.err.println(exception.getMessage());
-            }
         }
     }
 
