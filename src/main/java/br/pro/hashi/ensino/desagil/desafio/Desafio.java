@@ -11,38 +11,36 @@ public class Desafio {
         Controller controller = new Controller(model, view);
 
         // Estrutura básica de um programa Swing.
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                // Constrói a janela.
-                JFrame frame = new JFrame();
+        SwingUtilities.invokeLater(() -> {
 
-                // Adiciona a visão à janela.
-                frame.setContentPane(view);
+            // Constrói a janela.
+            JFrame frame = new JFrame();
 
-                // Adiciona o controlador à lista de observadores
-                // das ações de teclado detectadas pela janela.
-                frame.addKeyListener(controller);
+            // Adiciona a visão à janela.
+            frame.setContentPane(view);
 
-                // Configura a janela para encerrar o programa quando for fechada.
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            // Adiciona o controlador à lista de observadores
+            // das ações de teclado detectadas pela janela.
+            frame.addKeyListener(controller);
 
-                // Configura a janela para não ser manualmente redimensionável.
-                frame.setResizable(false);
+            // Configura a janela para encerrar o programa quando for fechada.
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-                // Redimensiona a janela de acordo com o tamanho de seu conteúdo.
-                frame.pack();
+            // Configura a janela para não ser manualmente redimensionável.
+            frame.setResizable(false);
 
-                // Exibe a janela.
-                frame.setVisible(true);
+            // Redimensiona a janela de acordo com o tamanho de seu conteúdo.
+            frame.pack();
 
-                // Constrói um relógio de 100 milissegundos e adiciona
-                // o controlador à lista de observadores desse relógio.
-                Timer timer = new Timer(100, controller);
+            // Exibe a janela.
+            frame.setVisible(true);
 
-                // Inicia o relógio.
-                timer.start();
-            }
+            // Constrói um relógio de 100 milissegundos e adiciona
+            // o controlador à lista de observadores desse relógio.
+            Timer timer = new Timer(100, controller);
+
+            // Inicia o relógio.
+            timer.start();
         });
     }
 }
